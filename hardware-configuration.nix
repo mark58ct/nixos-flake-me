@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
@@ -14,31 +15,36 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
+    {
+      device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
+    {
+      device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
+    {
+      device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
       fsType = "btrfs";
       options = [ "subvol=@nix" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
+    {
+      device = "/dev/disk/by-uuid/c7ccbb8c-4d08-4d44-b601-ffe656d2c7e2";
       fsType = "btrfs";
       options = [ "subvol=@var" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/BAC4-9F58";
+    {
+      device = "/dev/disk/by-uuid/BAC4-9F58";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };

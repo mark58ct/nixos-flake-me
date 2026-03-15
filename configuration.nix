@@ -9,6 +9,7 @@
       ./hardware-configuration.nix
     ];
   # Bootloader.
+  boot.loader.timeout = 1;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # Use latest kernel.
