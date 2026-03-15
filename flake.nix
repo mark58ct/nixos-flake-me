@@ -4,10 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
   outputs = { self, nixpkgs }: {
-      packages.x86_64-linux= {
-       nixosConfigurations.nixos-flakes-me = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-flakes-me = nixpkgs.lib.nixosSystem {
+     system = "x86_64-linux";
       modules = [ ./configuration.nix ];
  };
-	   };
+
   };
 }
